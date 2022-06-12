@@ -1,0 +1,83 @@
+object Losowanie: TLosowanie
+  Left = 310
+  Height = 520
+  Top = 37
+  Width = 562
+  Caption = 'Losowanie'
+  ClientHeight = 520
+  ClientWidth = 562
+  Color = clNone
+  LCLVersion = '2.2.0.4'
+  object Losuj: TButton
+    Left = 24
+    Height = 25
+    Top = 424
+    Width = 75
+    Caption = 'Losuj'
+    OnClick = LosujClick
+    TabOrder = 0
+  end
+  object Sortuj: TButton
+    Left = 112
+    Height = 25
+    Top = 424
+    Width = 75
+    Caption = 'Sortuj'
+    OnClick = SortujClick
+    TabOrder = 1
+  end
+  object ListBox_niePosortowany: TListBox
+    Left = 48
+    Height = 312
+    Top = 96
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 2
+  end
+  object ListBox_Posortowany: TListBox
+    Left = 288
+    Height = 312
+    Top = 96
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 3
+  end
+  object KONIEC: TButton
+    Left = 336
+    Height = 49
+    Top = 424
+    Width = 99
+    Caption = 'KONIEC'
+    OnClick = KONIECClick
+    TabOrder = 4
+  end
+  object INFO: TButton
+    Left = 240
+    Height = 25
+    Top = 424
+    Width = 75
+    Caption = 'INFO'
+    OnClick = INFOClick
+    TabOrder = 5
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 21
+    Top = 48
+    Width = 148
+    Caption = 'Lista nieposortowana'
+    Font.Color = clHotLight
+    Font.Height = -16
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 256
+    Height = 42
+    Top = 48
+    Width = 160
+    Caption = '   Lista posortowana '#13#10'w porzadku malejacym'
+    Font.Color = clHotLight
+    Font.Height = -16
+    ParentFont = False
+  end
+end
