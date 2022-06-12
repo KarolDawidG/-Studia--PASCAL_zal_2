@@ -13,7 +13,7 @@ type
   PElist= ^tlistEl;
   tlistEl=  record
   nastepny: PElist;
-  dane: integer;
+  dane: integer;                //typ danych
   end;
 
   slist= object
@@ -67,8 +67,8 @@ begin
   ListBox_Posortowany.clear;
   L.init;
   for i := 1 to 20 do                    // dodaje 20 razy losowa wartosc do listy
-      L.nowy_element (random(999));
-  L.losowa_lista;
+    L.nowy_element (random(999));
+    L.losowa_lista;
 end;
 
 procedure TLosowanie.KONIECClick(Sender: TObject);
@@ -83,14 +83,14 @@ end;
 
 procedure TLosowanie.SortujClick(Sender: TObject);
 begin
-  ListBox_Posortowany.clear;
-  L.sortuj_przez_scalanie;
-   L.posortowana_lista;
+     ListBox_Posortowany.clear;
+     L.sortuj_przez_scalanie;
+     L.posortowana_lista;
   end;
 
 constructor slist.init;
 begin
-  head := nil;
+     head := nil;
 end;
 
 procedure slist.losowa_lista;              // Procedura wyświetla zawartość elementów listy
@@ -101,11 +101,11 @@ begin
   nr:= 1;
   p:= head;
   while p <> nil do
-  begin
-    Losowanie.ListBox_niePosortowany.Items.Add(IntToStr(nr)+ '  :  ' +IntToStr(p^.dane));
-    inc (nr);
-    p := p^.nastepny;
-  end;
+    begin
+      Losowanie.ListBox_niePosortowany.Items.Add(IntToStr(nr)+ '  :  ' +IntToStr(p^.dane));
+      inc (nr);
+      p := p^.nastepny;
+    end;
 end;
 
 procedure slist.posortowana_lista;        // Procedura wyświetla zawartość elementów listy
@@ -116,14 +116,14 @@ begin
   nr:= 1;
   zmienna_posortowana:= head;
   while zmienna_posortowana <> nil do
-  begin
-    Losowanie.ListBox_Posortowany.Items.Add(IntToStr(nr)+ '  :  ' +IntToStr(zmienna_posortowana^.dane));
-    inc (nr);
-    zmienna_posortowana := zmienna_posortowana^.nastepny;
-  end;
-end;
+    begin
+      Losowanie.ListBox_Posortowany.Items.Add(IntToStr(nr)+ '  :  ' +IntToStr(zmienna_posortowana^.dane));
+      inc (nr);
+      zmienna_posortowana := zmienna_posortowana^.nastepny;
+    end;
+end;                                               // Procedura dołączania na początek listy
 
-procedure slist.nowy_element ( v : integer );           // Procedura dołączania na początek listy
+procedure slist.nowy_element ( v : integer );
 var
   nowa : PElist;
 begin
@@ -139,10 +139,10 @@ var
 begin
   pp := head;
   if pp <> nil then
-  begin
-    head := pp^.nastepny;
-    dispose ( pp );
-  end;
+    begin
+      head := pp^.nastepny;
+      dispose ( pp );
+    end;
 end;
 
 procedure slist.rozdzielenie ( var l1, l2 : slist );      // Dokonuje podziału listy
@@ -173,7 +173,7 @@ begin
   p1^.nastepny := nil;
   p2^.nastepny := nil;
   l1.usuwanie_z_poczatku( );
- l2.usuwanie_z_poczatku( );
+  l2.usuwanie_z_poczatku( );
 end;
 
 procedure slist.laczenie ( var l1, l2 : slist );     // Scala dwie obce listy

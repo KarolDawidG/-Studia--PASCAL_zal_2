@@ -13,7 +13,7 @@ type
   PElist= ^tlistEl;
   tlistEl=  record
   nastepny: PElist;
-  dane: integer;
+  dane: integer;                //typ danych
   end;
 
   slist= object
@@ -31,7 +31,7 @@ type
 
   { TLosowanie }
 
-  TLosowanie = class(TForm)
+  TLosowanie = class(TForm)           // elementy klasy TLosowanie
     INFO: TButton;
     KONIEC: TButton;
     Label1: TLabel;
@@ -50,7 +50,7 @@ type
   end;
 
 var
-  Losowanie: TLosowanie;
+  Losowanie: TLosowanie;                // zmienne klasy TLosowanie
   L: slist;
   i: integer;
 
@@ -60,7 +60,7 @@ implementation
 
 { TLosowanie }
 
-procedure TLosowanie.LosujClick(Sender: TObject);
+procedure TLosowanie.LosujClick(Sender: TObject);      // procedura OnClick wyswietlajaca liste zlozona z losowych elementow
 begin
   Randomize;
   ListBox_niePosortowany.clear;
@@ -73,22 +73,22 @@ end;
 
 procedure TLosowanie.KONIECClick(Sender: TObject);
 begin
-      close;
+      close;                         // procedura zamykajaca program
 end;
 
-procedure TLosowanie.INFOClick(Sender: TObject);
+procedure TLosowanie.INFOClick(Sender: TObject);      // procedura wyswietlajaca informacje o autorze
 begin
      Application.MessageBox('Autor: Glinkowski Dawid; nr indeksu 154837;  rok akademicki: 1; wydzial: informatyka; grupa: D1, semestr: I.','Informacje o autorze;',0);
 end;
 
-procedure TLosowanie.SortujClick(Sender: TObject);
+procedure TLosowanie.SortujClick(Sender: TObject);      // procedura OnClick wyswietlajaca wynik sortowania listy
 begin
      ListBox_Posortowany.clear;
      L.sortuj_przez_scalanie;
      L.posortowana_lista;
   end;
 
-constructor slist.init;
+constructor slist.init;         // konstruktor klasy
 begin
      head := nil;
 end;
@@ -121,9 +121,9 @@ begin
       inc (nr);
       zmienna_posortowana := zmienna_posortowana^.nastepny;
     end;
-end;
+end;                                               // Procedura dołączania na początek listy
 
-procedure slist.nowy_element ( v : integer );           // Procedura dołączania na początek listy
+procedure slist.nowy_element ( v : integer );
 var
   nowa : PElist;
 begin
@@ -145,7 +145,7 @@ begin
     end;
 end;
 
-procedure slist.rozdzielenie ( var l1, l2 : slist );      // Dokonuje podziału listy
+procedure slist.rozdzielenie ( var l1, l2 : slist );      // procedura dokonuje podziału listy
 var
   p1, p2 : PElist;
   s : boolean;
@@ -173,10 +173,10 @@ begin
   p1^.nastepny := nil;
   p2^.nastepny := nil;
   l1.usuwanie_z_poczatku( );
- l2.usuwanie_z_poczatku( );
+  l2.usuwanie_z_poczatku( );
 end;
 
-procedure slist.laczenie ( var l1, l2 : slist );     // Scala dwie obce listy
+procedure slist.laczenie ( var l1, l2 : slist );     // procedura scala listy
 var
   element : PElist;
 begin

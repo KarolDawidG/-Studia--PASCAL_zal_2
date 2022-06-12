@@ -3,7 +3,7 @@ object Losowanie: TLosowanie
   Height = 520
   Top = 37
   Width = 562
-  Caption = 'Losowanie'
+  Caption = 'Losowanie listy Autor: Glinkowski Dawid; nr indeksu 154837;  rok akademicki: 1; wydzial: informatyka; grupa: D1, semestr: I'
   ClientHeight = 520
   ClientWidth = 562
   Color = clNone
